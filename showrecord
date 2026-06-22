@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+CODEBASE="/proj/ads/soft/classic-data-util"
+
+if [ -f "$CODEBASE/venv/bin/python" ]; then
+    PYTHON="$CODEBASE/venv/bin/python"
+else
+    PYTHON="python3"
+fi
+
+exec "$PYTHON" "$CODEBASE/run.py" "$@"
