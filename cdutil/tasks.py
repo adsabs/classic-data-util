@@ -129,6 +129,7 @@ def _format_summary_stdout(results):
     lines = []
     lines.append("Summary Overview for ID: {0}".format(results['supplied_id']))
     lines.append("")
+    lines.append("From Solr record:\n")
     lines.append("supplied id:        {0}".format(results['supplied_id']))
     lines.append("canonical bibcode:  {0}".format(results['bibcode']))
     lines.append("matched preprint:   {0}".format(results['preprint']))
@@ -136,6 +137,7 @@ def _format_summary_stdout(results):
     lines.append("doi:                {0}".format(results['doi']))
     lines.append("identifiers:        {0}".format(results['identifier']))
     lines.append("SciX ID:            {0}".format(results['scix_id']))
+    lines.append("\nFrom back office data:\n")
     lines.append("unmatched DOI cites:{0}".format(results['refids']))
     lines.append("fulltext sources:")
     for f in results['fulltext']:
@@ -143,6 +145,7 @@ def _format_summary_stdout(results):
     lines.append("reference sources:")
     for f in results['references']:
         lines.append("    {0}".format(f))
+    lines.append("\nFrom Solr record:\n")
     lines.append("acknowledgements:")
     ack = results['acknowledgements']
     if isinstance(ack, list):
