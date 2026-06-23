@@ -28,7 +28,7 @@ def get_ref_files(bbc, source=None):
     if source == 'Crossref':
         res = [e for e in res if e.split('\t')[1].endswith('xref.xml')]
     if source == 'Publisher':
-        jnl = bbc[4:9].replace('.','')
+        jnl = bbc[4:9].replace('.','').replace('&','+')
         res = [e for e in res if not e.split('\t')[1].endswith('xref.xml') and e.split('\t')[1].startswith(jnl)]
     for entry in res:
         results.append("{0}/{1}".format(config['REF_SRC_BASE'], entry.split('\t')[1]))
