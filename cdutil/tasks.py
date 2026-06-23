@@ -88,7 +88,10 @@ def get_summary_overview(identifier):
     results['alternates'] = 'None'
     if 'alternate_bibcode' in rec:
         results['alternates'] = ", ".join(rec['alternate_bibcode'])
-    results['doi'] = ", ".join(rec['doi'])
+    try:
+        results['doi'] = ", ".join(rec['doi'])
+    except:
+        results['doi'] = 'Not Available'
     results['identifier'] = ", ".join(rec['identifier'])
     results['scix_id'] = rec.get('scix_id','Not Available')
     results['fulltext'] = []
